@@ -40,4 +40,10 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     padding-bottom: 10px;
   }
+
+  @media (min-width: 768px) {
+    body{
+      max-width: 1200px;
+    }
+  }
 `

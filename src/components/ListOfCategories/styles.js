@@ -6,6 +6,7 @@ export const List = styled.ul`
   overflow-x: scroll;
   width: 100%;
   padding-bottom: 10px;
+  margin-bottom: 30px;
   scrollbar-width: thin;
   scrollbar-color: #90A4AE #CFD8DC;
   &::-webkit-scrollbar{
@@ -18,6 +19,9 @@ export const List = styled.ul`
     background-color: #90A4AE;
     border-radius: 25px;
     border: 4px solid #CFD8DC;
+  }
+  @media (min-width: 768px) {
+    justify-content: center;
   }
 `
 
