@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { fadeIn } from '../../styles/animations'
+
 export const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -17,6 +19,7 @@ export const Img = styled.img`
   position: absolute;
   top: 0;
   width: 100%;
+  ${fadeIn()}
 `
 
 export const Button = styled.button`
