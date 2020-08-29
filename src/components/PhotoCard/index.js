@@ -18,7 +18,7 @@ export const PhotoCard = ({ id, likes = 0, src = 'https://res.cloudinary.com/mid
       {
         show &&
           <>
-            <a href={`/detail/${id}`}>
+            <a href={`/?detail=${id}`}>
               <ImgWrapper>
                 <Img src={src} />
               </ImgWrapper>
