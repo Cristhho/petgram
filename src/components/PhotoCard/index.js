@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@reach/router'
 
 import { Article, ImgWrapper, Img } from './styles'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
@@ -17,11 +18,11 @@ export const PhotoCard = ({ id, likes = 0, src = 'https://res.cloudinary.com/mid
       {
         show &&
           <>
-            <a href={`/?detail=${id}`}>
-              <ImgWrapper>
+            <ImgWrapper>
+              <Link to={`/detail/${id}`}>
                 <Img src={src} />
-              </ImgWrapper>
-            </a>
+              </Link>
+            </ImgWrapper>
             <ToggleLikeMutation>
               {
                 (toggleLike) => {
