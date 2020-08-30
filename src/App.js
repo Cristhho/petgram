@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-closing-tag-location */
+/* eslint-disable operator-linebreak */
 import React from 'react'
+import { Router } from '@reach/router'
 
-import { ListOfCategories } from './components/ListOfCategories'
-import { ListOfPhotos } from './container/ListOfPhotos'
+import { Home } from './pages/Home'
 import { Logo } from './components/Logo'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
@@ -18,10 +18,11 @@ export default function App () {
       {
         detailId
           ? <PhotoCardWithQuery id={detailId} />
-          : <>
-            <ListOfCategories />
-            <ListOfPhotos categoryId={2} />
-          </>
+          :
+          <Router>
+            <Home path='/' />
+            <Home path='/pet/:id' />
+          </Router>
       }
     </>
   )
