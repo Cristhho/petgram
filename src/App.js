@@ -5,6 +5,7 @@ import { Router } from '@reach/router'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
 import { Logo } from './components/Logo'
+import { Navbar } from './components/Navbar'
 import { GlobalStyle } from './styles/GlobalStyles'
 
 export default function App () {
@@ -17,6 +18,7 @@ export default function App () {
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailId' />
       </Router>
+      <Navbar />
     </>
   )
 }
