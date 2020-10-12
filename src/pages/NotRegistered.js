@@ -1,7 +1,19 @@
 import React from 'react'
 
+import Context from '../Context'
+
 export const NotRegistered = () => {
   return (
-    <h1>Not registered</h1>
+    <Context.Consumer>
+      {
+        ({ activateAuth }) => {
+          return (
+            <form onSubmit={activateAuth}>
+              <button>Iniciar sesión</button>
+            </form>
+          )
+        }
+      }
+    </Context.Consumer>
   )
 }
