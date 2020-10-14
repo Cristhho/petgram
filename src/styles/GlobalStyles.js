@@ -39,11 +39,21 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     min-height: 100vh;
     padding-bottom: 10px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  #wrapper {
+    padding-bottom: 55px;
   }
 
   @media (min-width: 768px) {
     body{
       max-width: 1200px;
+    }
+    #app {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 `

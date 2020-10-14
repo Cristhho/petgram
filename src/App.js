@@ -18,24 +18,26 @@ export default function App () {
     <>
       <GlobalStyle />
       <Logo />
-      <Router>
-        <Home path='/' />
-        <Home path='/pet/:id' />
-        <Detail path='/detail/:detailId' />
-      </Router>
-      <Context.Consumer>
-        {
-          ({ isAuth }) =>
-            isAuth ? <Router>
-              <Favs path='/fav' />
-              <User path='/user' />
-            </Router>
-              : <Router>
-                <NotRegistered path='/fav' />
-                <NotRegistered path='/user' />
+      <div id='wrapper'>
+        <Router>
+          <Home path='/' />
+          <Home path='/pet/:id' />
+          <Detail path='/detail/:detailId' />
+        </Router>
+        <Context.Consumer>
+          {
+            ({ isAuth }) =>
+              isAuth ? <Router>
+                <Favs path='/fav' />
+                <User path='/user' />
               </Router>
-        }
-      </Context.Consumer>
+                : <Router>
+                  <NotRegistered path='/fav' />
+                  <NotRegistered path='/user' />
+                </Router>
+          }
+        </Context.Consumer>
+      </div>
       <Navbar />
     </>
   )
