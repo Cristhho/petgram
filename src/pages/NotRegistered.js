@@ -3,6 +3,7 @@ import React from 'react'
 import { UserForm } from '../components/UserForm'
 import Context from '../Context'
 import { RegisterMutation } from '../container/RegisterMutation'
+import { LoginMutation } from '../container/LoginMutation'
 
 export const NotRegistered = () => {
   return (
@@ -13,12 +14,15 @@ export const NotRegistered = () => {
             <>
               <RegisterMutation>
                 {
-                  (register, { data, loading, error }) => {
+                  (register, { loading, error }) => {
                     const onSubmit = ({ email, password }) => {
                       const input = { email, password }
                       const variables = { input }
                       register({ variables })
-                        .then(activateAuth)
+                        .then((response) => {
+                          const { signup } = response.data
+                          activateAuth(signup)
+                        })
                     }
 
                     const errorMsg = error && 'El usuario ya existe.'
@@ -27,7 +31,25 @@ export const NotRegistered = () => {
                   }
                 }
               </RegisterMutation>
-              <UserForm onSubmit={activateAuth} title='Iniciar sesión' />
+              <LoginMutation>
+                {
+                  (login, { loading, error }) => {
+                    const onSubmit = ({ email, password }) => {
+                      const input = { email, password }
+                      const variables = { input }
+                      login({ variables })
+                        .then((response) => {
+                          const { login } = response.data
+                          activateAuth(login)
+                        })
+                    }
+
+                    const errorMsg = error && 'Usuario o contraseña incorrectos.'
+
+                    return <UserForm onSubmit={onSubmit} title='Iniciar sesión' error={errorMsg} disabled={loading} />
+                  }
+                }
+              </LoginMutation>
             </>
           )
         }
