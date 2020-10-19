@@ -12,6 +12,10 @@ const Provider = ({ children }) => {
     activateAuth: (token) => {
       setIsAuth(true)
       window.sessionStorage.setItem('token', token)
+    },
+    removeAuth: () => {
+      setIsAuth(false)
+      window.sessionStorage.removeItem('token')
     }
   }
 
@@ -24,5 +28,6 @@ const Provider = ({ children }) => {
 
 export default {
   Provider,
-  Consumer: Context.Consumer
+  Consumer: Context.Consumer,
+  Context
 }
