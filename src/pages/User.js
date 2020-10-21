@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import Context from '../Context'
 import { Button } from '../components/UserForm/styles'
 
-export const User = () => {
+export default () => {
   const { removeAuth } = useContext(Context.Context)
   return (
     <>

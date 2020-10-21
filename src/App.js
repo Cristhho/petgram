@@ -1,23 +1,24 @@
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable operator-linebreak */
-import React, { useContext } from 'react'
+import React, { useContext, Suspense } from 'react'
 import { Redirect, Router } from '@reach/router'
 
-import { Home } from './pages/Home'
-import { Detail } from './pages/Detail'
-import { Favs } from './pages/Favs'
-import { User } from './pages/User'
-import { NotRegistered } from './pages/NotRegistered'
 import { Logo } from './components/Logo'
 import { Navbar } from './components/Navbar'
 import { GlobalStyle } from './styles/GlobalStyles'
 import Context from './Context'
-import { NotFound } from './pages/NotFound'
+
+const Home = React.lazy(() => import('./pages/Home'))
+const Detail = React.lazy(() => import('./pages/Detail'))
+const Favs = React.lazy(() => import('./pages/Favs'))
+const User = React.lazy(() => import('./pages/User'))
+const NotRegistered = React.lazy(() => import('./pages/NotRegistered'))
+const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 export default function App () {
   const { isAuth } = useContext(Context.Context)
   return (
-    <>
+    <Suspense fallback={<div />}>
       <GlobalStyle />
       <Logo />
       <div id='wrapper'>
@@ -35,6 +36,6 @@ export default function App () {
         </Router>
       </div>
       <Navbar />
-    </>
+    </Suspense>
   )
 }

@@ -5,7 +5,7 @@ import Context from '../Context'
 import { RegisterMutation } from '../container/RegisterMutation'
 import { LoginMutation } from '../container/LoginMutation'
 
-export const NotRegistered = () => {
+export default () => {
   return (
     <Context.Consumer>
       {
